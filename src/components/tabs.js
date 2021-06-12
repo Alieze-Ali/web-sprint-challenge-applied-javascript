@@ -1,3 +1,5 @@
+import axios from "axios"
+
 const Tabs = (topics) => {
   // TASK 3
   // ---------------------
@@ -13,6 +15,33 @@ const Tabs = (topics) => {
   //   <div class="tab">technology</div>
   // </div>
   //
+
+  // Step 1. Create Elements
+  const mainDiv = document.createElement('div')
+
+  // Step 2. Create Classes
+  mainDiv.classList.add('topics')
+
+  // Step 3. Creating forEach Loop to add tabs in each subDiv
+  // ??? Where is this topics array comming from???
+  topics.forEach(topic => {
+    // creating a DOM element for div
+    const tab = document.createElement('div')
+    // create classes for tabs
+    tab.classList.add('tab')
+    // pass text to each tab ???? Where is this coming from???
+    tab.textContent = topic
+    // append tabs to mainDiv
+    mainDiv.appendChild(tab)
+
+  })
+
+ // Step 4. Check for progress w a console ??? I'm not seeing this console, but I do now see the console fron header.js
+ console.log(mainDiv)
+
+ // Step 5. Returning mainDiv
+ return mainDiv
+
 }
 
 const tabsAppender = (selector) => {
@@ -23,6 +52,23 @@ const tabsAppender = (selector) => {
   // Find the array of topics inside the response, and create the tabs using the Tabs component.
   // Append the tabs to the element in the DOM that matches the selector passed to the function.
   //
+
+  // Step 1: Add axios script tag to HTML -- ??? Did I do this correctly
+  // Step 2: Create get request
+  axios.get('https://lambda-times-api.herokuapp.com/topics')
+  .then(data => {
+    //pass array into function & assign to variable
+    const tabs = Tabs(data.data.topics)
+    //grab selector from DOM
+    const tabsContainer = document.querySelector(selector)
+    //append tabsContainer
+    tabsContainer.appendChild(tabs)
+    //trying to test data input - I see it!!
+    console.log(data.data.topics)
+  })
+  .catch(err => {
+    console.log(err)
+  })
 }
 
 export { Tabs, tabsAppender }
