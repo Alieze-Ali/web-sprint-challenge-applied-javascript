@@ -41,7 +41,7 @@ In meeting the minimum viable product (MVP) specifications listed below, your pr
 - [x] Step 0 is to link `src/index.js` to the `src/index.html` file using a script tag.
 - [x] Steps 1 and 2 are explained inside the `src/components/header.js` file.
 - [x] Steps 3 and 4 are explained inside the `src/components/tabs.js` file.
-- [ ] Steps 5 and 6 are explained inside the `src/components/card.js` file.
+- [x] Steps 5 and 6 are explained inside the `src/components/card.js` file. - ??? I don't understand this step
 
 **Important Notes:**
 
@@ -76,7 +76,12 @@ After finishing your required elements, you can push your work further. These go
 Be prepared to demonstrate your understanding of this week's concepts by answering questions on the following topics. You might prepare by writing down your own answers before hand.
 
 1. What is the DOM?
+The DOM aka Document Object Model display all of the objects that make up the structure and content of a document on the web. 
 2. What is an event?
+An event is when something happens to HTML elements. I can be when a page is loaded, when input is put in, or when a button is clicked, hovered over or interacted with otherwise. Javascript can be used to react to these events for UI.
 3. What is an event listener?
+An event listener waits for an 'event' to occur - like a button being clicked and can execute a function to that event to make something happen on the page dynamically. 
 4. Why would we convert a NodeList into an Array?
+In case you need to loop over it and gather information for something of use - like a component. 
 5. What is a component?
+A component is a reusable piece of code, often represented by a function that incorporates HTML, CSS & Javascript. They are used to build apps & pages faster with more efficiency.
