@@ -1,3 +1,7 @@
+import axios from "axios"
+// ??? I don't understand what this import is or how to use it below, so I commented it out - with it nothing was passing, help!! ???
+//import { createBroadcastChannel } from "msw/lib/types/utils/createBroadcastChannel"
+
 const Card = (article) => {
   // TASK 5
   // ---------------------
@@ -17,6 +21,39 @@ const Card = (article) => {
   //   </div>
   // </div>
   //
+
+  // Step 1. Create Elements
+  const divCard = document.createElement('div')
+  const divHeadline = document.createElement('div')
+  const divAuthor = document.createElement('div')
+  const divImg = document.createElement('div')
+  const img = document.createElement('img')
+  const span = document.createElement('span')
+
+  // Step 2. Create classes
+  divCard.classList.add('card')
+  divHeadline.classList.add('headline')
+  divAuthor.classList.add('author')
+  divImg.classList.add('img-container')
+
+  // Step 3. Create Hierarchy
+  divCard.appendChild(divHeadline)
+  divCard.appendChild(divAuthor)
+  divAuthor.appendChild(divImg)
+  divImg.appendChild(img)  
+  divAuthor.appendChild(span)
+
+  // Step 4. Add Text ??? Where is all this coming from
+  divHeadline.textContent = headline;
+  span.textContent = authorName;
+  img.src = authorPhoto;
+
+  // Step 5. Text divCard - ??? Where can I find results ???
+  console.log(divCard)
+
+  // Step 6. Return divCard
+  return divCard
+
 }
 
 const cardAppender = (selector) => {
@@ -28,6 +65,19 @@ const cardAppender = (selector) => {
   // Create a card from each and every article object in the response, using the Card component.
   // Append each card to the element in the DOM that matches the selector passed to the function.
   //
+
+  // Step 1: create query selector varible = ??? Help, I don't understand this step - what are we selecting???
+  const cards = document.querySelector(selector)
+  console.log(cards)
+  // Step 1: Get articles from axios
+  axios.get('https://lambda-times-api.herokuapp.com/articles')
+  // ??? Need help understanding this code
+  .then((res) => {
+    console.log(res.data.articles.javascript)
+    res.data.articles.javascript.forEach(article => {
+      cards.appendChild(Card(article))
+    });
+  })
 }
 
 export { Card, cardAppender }
