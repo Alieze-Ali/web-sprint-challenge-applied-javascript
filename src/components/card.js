@@ -44,9 +44,13 @@ const Card = (article) => {
   divAuthor.appendChild(span)
 
   // Step 4. Add Text ??? Where is all this coming from
-  divHeadline.textContent = headline;
-  span.textContent = authorName;
-  img.src = authorPhoto;
+  divHeadline.textContent = article.headline;
+  span.textContent = article.authorName;
+  img.src = article.authorPhoto;
+  // trying something else
+  // divHeadline.textContent = undefined
+  // span.textContent = undefined
+  // img.src = undefined
 
   // Step 5. Text divCard - ??? Where can I find results ???
   console.log(divCard)
@@ -77,6 +81,7 @@ const cardAppender = (selector) => {
     res.data.articles.javascript.forEach(article => {
       cards.appendChild(Card(article))
     });
+    
   })
 }
 
