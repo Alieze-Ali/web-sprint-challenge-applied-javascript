@@ -41,7 +41,7 @@ const Header = (title, date, temp) => {
   spanDate.textContent = date
   spanTemp.textContent = temp
 
-  // Step 5. Futile attempt to Check for progress again ???? How do I get this to work ???
+  // Step 5. Futile attempt to Check for progress again ???? How do I get this to work - when does this appear, I see it now after working on tabs.js, perhaps after the return ???
   console.log(divHeader)
 
   // Step 6. Return divHeader

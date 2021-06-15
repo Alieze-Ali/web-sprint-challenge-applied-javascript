@@ -3,6 +3,7 @@ import axios from "axios"
 //import { createBroadcastChannel } from "msw/lib/types/utils/createBroadcastChannel"
 
 const Card = (article) => {
+  console.log(article)
   // TASK 5
   // ---------------------
   // Implement this function, which should return the markup you see below.
@@ -43,7 +44,7 @@ const Card = (article) => {
   divImg.appendChild(img)  
   divAuthor.appendChild(span)
 
-  // Step 4. Add Text ??? Where is all this coming from
+  // Step 4. Add Text 
   divHeadline.textContent = article.headline;
   span.textContent = article.authorName;
   img.src = article.authorPhoto;
@@ -52,7 +53,7 @@ const Card = (article) => {
   // span.textContent = undefined
   // img.src = undefined
 
-  // Step 5. Text divCard - ??? Where can I find results ???
+  // Step 5. Test divCard - 
   console.log(divCard)
 
   // Step 6. Return divCard
@@ -81,7 +82,22 @@ const cardAppender = (selector) => {
     res.data.articles.javascript.forEach(article => {
       cards.appendChild(Card(article))
     });
-    
+    res.data.articles.bootstrap.forEach(banana=> {
+      //invoking cards
+      cards.appendChild(Card(banana))
+    });
+    res.data.articles.technology.forEach(banana=> {
+      //invoking cards
+      cards.appendChild(Card(banana))
+    });
+    res.data.articles.jquery.forEach(banana=> {
+      //invoking cards
+      cards.appendChild(Card(banana))
+    });
+    res.data.articles.node.forEach(banana=> {
+      //invoking cards
+      cards.appendChild(Card(banana))
+    });
   })
 }
 
